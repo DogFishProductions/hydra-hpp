@@ -1,0 +1,36 @@
+{
+  "name": "hydra-hpp",
+  "version": "1.0.0",
+  "description": "Hydra Hot Potato Player (game)",
+  "main": "hpp.js",
+  "scripts": {
+    "john": "node hpp.js John true",
+    "susan": "node hpp.js Susan",
+    "jane": "node hpp.js Jane",
+    "docker:up:single": "cd ../docker && echo \"NODE_ENV=local\r\nMODE=single\" > .env && docker-compose up single",
+    "docker:start:single": "cd ../docker && echo \"NODE_ENV=local\r\nMODE=single\" > .env && docker-compose start single",
+    "docker:stop:single": "cd ../docker && docker-compose stop single",
+    "docker:up": "cd ../docker && echo \"NODE_ENV=local\r\nMODE=multi\" > .env && docker-compose up",
+    "docker:start": "cd ../docker && echo \"NODE_ENV=local\r\nMODE=multi\" > .env && docker-compose start",
+    "docker:stop": "cd ../docker && docker-compose stop",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjus/hydra-hpp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cjus/hydra-hpp/issues"
+  },
+  "homepage": "https://github.com/cjus/hydra-hpp#readme",
+  "dependencies": {
+    "fwsp-hydra": "0.14.3"
+  },
+  "devDependencies": {
+    "eslint": "3.13.1",
+    "eslint-plugin-jasmine": "2.2.0"
+  }
+}

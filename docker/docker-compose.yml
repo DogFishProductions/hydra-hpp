@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+ redis:
+  image: redis:3-alpine
+
+ single:
+  build: .
+  depends_on:
+   - redis
+  links:
+   - redis
+  user: dogfish
+  volumes:
+   - $PWD/..:/home/dogfish/app
+  command: /bin/ash -c "sh ./scripts/hydra-cli-config.sh && sh ./scripts/startup.sh ${NODE_ENV} ${MODE}"
+
+ susan:
+  build: .
+  depends_on:
+   - redis
+  links:
+   - redis
+  user: dogfish
+  volumes:
+   - $PWD/..:/home/dogfish/app
+  command: /bin/ash -c "sh ./scripts/hydra-cli-config.sh && sh ./scripts/startup.sh ${NODE_ENV} ${MODE} susan"
+
+ jane:
+  build: .
+  depends_on:
+   - redis
+  links:
+   - redis
+  user: dogfish
+  volumes:
+   - $PWD/..:/home/dogfish/app
+  command: /bin/ash -c "sh ./scripts/hydra-cli-config.sh && sh ./scripts/startup.sh ${NODE_ENV} ${MODE} jane"
+
+ john:
+  build: .
+  depends_on:
+   - redis
+  links:
+   - redis
+  user: dogfish
+  volumes:
+   - $PWD/..:/home/dogfish/app
+  command: /bin/ash -c "sh ./scripts/hydra-cli-config.sh && sh ./scripts/startup.sh ${NODE_ENV} ${MODE} john true"
